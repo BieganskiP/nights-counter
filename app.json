@@ -1,26 +1,28 @@
 {
   "expo": {
-    "name": "nights-counter",
+    "name": "Licznik Nocy",
     "slug": "licznik-nocy",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
+    "description": "Kolorowa aplikacja dla dzieci do liczenia nocy do ważnych wydarzeń",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.nightscounter.app"
     },
     "android": {
+      "package": "com.nightscounter.app",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
