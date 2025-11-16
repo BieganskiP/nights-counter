@@ -44,22 +44,18 @@ npm run web
 npm start
 ```
 Następnie zeskanuj kod QR aplikacją Expo Go na telefonie:
-- [Expo Go dla Android](https://play.google.com/store/apps/details?id=host.exp.exponent)
-- [Expo Go dla iOS](https://apps.apple.com/app/expo-go/id982107779)
+- [Expo Go dla Android](https://play.google.com/store/apps/d
 
-## 📱 Jak używać?
-
-1. **Zobacz liczniki** - Na głównym ekranie zobaczysz kolorowe karty z liczbą nocy do każdego wydarzenia
-2. **Dodaj wydarzenie** - Kliknij "➕ Dodaj Wydarzenie", wybierz emoji, wpisz nazwę i datę
-3. **Zobacz kalendarz** - Kliknij "📅 Pokaż Kalendarz" aby zobaczyć wszystkie dni
-4. **Usuń wydarzenie** - Przytrzymaj kartę wydarzenia aby je usunąć
 
 ## 🎨 Kolory i Emoji
 
 Aplikacja automatycznie przypisuje losowe kolory do nowych wydarzeń. Do wyboru są emoji:
 🎉 🎂 🎈 🎁 🌟 ⭐ 🎊 🦄 🌈 🚀 🏖️ 🎪 🎨 🎮 ⚽ 🏀
 
+
+
 ## 📁 Struktura projektu
+
 
 ```
 nights-counter/

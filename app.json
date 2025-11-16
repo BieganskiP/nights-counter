@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "nights-counter",
-    "slug": "nights-counter",
+    "slug": "licznik-nocy",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,6 +24,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "852d46fc-e316-48cb-a3c8-1bc09a87e2f4"
+      }
+    },
+    "owner": "happyrtx"
   }
 }
