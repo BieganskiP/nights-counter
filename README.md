@@ -7,7 +7,6 @@ Prosta i kolorowa aplikacja mobilna React Native + Expo, która pomaga dzieciom 
 - 🎯 **Licznik nocy** - pokazuje ile razy trzeba jeszcze spać do danego dnia
 - 🎄 **Wbudowane święta** - Mikołajki, Wigilia, Boże Narodzenie, Nowy Rok
 - ➕ **Dodawanie własnych wydarzeń** - urodziny, wakacje, i inne ważne dni
-- 📅 **Kalendarz** - wizualizacja wszystkich wydarzeń
 - 🎨 **Kolorowy interfejs** - dużo kolorów i emoji dla dzieci
 - 🗑️ **Przytrzymaj** aby usunąć wydarzenie
 
@@ -79,9 +78,8 @@ Po zakończeniu buildu otrzymasz link do pobrania pliku APK/AAB lub IPA.
 ## 📱 Jak używać?
 
 1. **Zobacz liczniki** - Na głównym ekranie zobaczysz kolorowe karty z liczbą nocy do każdego wydarzenia
-2. **Dodaj wydarzenie** - Kliknij "➕ Dodaj Wydarzenie", wybierz emoji, wpisz nazwę i datę
-3. **Zobacz kalendarz** - Kliknij "📅 Pokaż Kalendarz" aby zobaczyć wszystkie dni
-4. **Usuń wydarzenie** - Przytrzymaj kartę wydarzenia aby je usunąć
+2. **Dodaj wydarzenie** - Kliknij "➕ Dodaj Wydarzenie", wybierz emoji, wpisz nazwę i datę (format: YYYY-MM-DD)
+3. **Usuń wydarzenie** - Przytrzymaj kartę wydarzenia aby je usunąć
 
 ## 🎨 Kolory i Emoji
 
@@ -106,7 +104,6 @@ nights-counter/
 
 - React Native
 - Expo
-- react-native-calendars
 - @react-native-community/datetimepicker
 
 ## 🛠️ Dostosowywanie
@@ -140,6 +137,7 @@ export const availableColors = ['#FF6B6B', '#4ECDC4', /* dodaj więcej */];
 ## 💡 Pomysły na rozbudowę
 
 - [ ] Zapisywanie wydarzeń w pamięci telefonu (AsyncStorage)
+- [ ] Widok kalendarza z zaznaczonymi wydarzeniami
 - [ ] Notyfikacje o zbliżających się wydarzeniach
 - [ ] Możliwość edycji wydarzeń
 - [ ] Dźwięki i animacje
