@@ -1,38 +1,17 @@
 // API Configuration
-// IMPORTANT: For physical devices, you need to use your computer's IP address
-// To find your IP:
-//   Windows: ipconfig (look for IPv4 Address)
-//   Mac/Linux: ifconfig or ip addr (look for inet)
-//   Example: "http://192.168.1.100:3000/api/events"
+const API_BASE_URL = "http://51.83.187.22:4005/api/events";
 
-import { Platform } from "react-native";
-
-// Configuration for physical devices - REPLACE WITH YOUR COMPUTER'S IP
-// If testing on a physical device, uncomment and set your IP:
-const PHYSICAL_DEVICE_IP = "192.168.0.10"; // e.g., "192.168.1.100"
-
-// Try to detect the environment and use appropriate URL
-const getApiBaseUrl = () => {
-  // If physical device IP is set, use it
-  if (PHYSICAL_DEVICE_IP) {
-    return `http://${PHYSICAL_DEVICE_IP}:3000/api/events`;
+// Helper function to extract date part from ISO string (YYYY-MM-DD)
+// This avoids timezone issues when parsing dates from API
+const extractDateOnly = (dateString) => {
+  if (!dateString) return null;
+  // If it's already in YYYY-MM-DD format, return as is
+  if (/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
+    return dateString;
   }
-
-  // For Android emulator
-  if (Platform.OS === "android") {
-    return "http://10.0.2.2:3000/api/events";
-  }
-
-  // For iOS simulator, localhost works
-  if (Platform.OS === "ios") {
-    return "http://localhost:3000/api/events";
-  }
-
-  // Default fallback
-  return "http://localhost:3000/api/events";
+  // If it's ISO format with time, extract just the date part
+  return dateString.split("T")[0];
 };
-
-const API_BASE_URL = getApiBaseUrl();
 
 // Helper function to handle API responses
 const handleResponse = async (response) => {
@@ -60,7 +39,7 @@ export const fetchEvents = async () => {
     return events.map((event) => ({
       id: event.id,
       name: event.title,
-      date: event.date,
+      date: extractDateOnly(event.date), // Extract only date part to avoid timezone issues
       recurring: event.isRepeatable || false,
       emoji: event.icon || "🎉",
       color: getColorForEvent(event.id), // Assign color based on ID

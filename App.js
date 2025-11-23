@@ -62,6 +62,12 @@ export default function App() {
     return `${year}-${month}-${day}`;
   };
 
+  // Funkcja parsująca datę YYYY-MM-DD lokalnie (bez problemów ze strefą czasową)
+  const parseDateLocal = (dateString) => {
+    const [year, month, day] = dateString.split("-").map(Number);
+    return new Date(year, month - 1, day);
+  };
+
   // Funkcja obliczająca datę dla powtarzalnych wydarzeń
   const getNextOccurrence = (eventDate, isRecurring) => {
     if (!isRecurring) {
@@ -71,7 +77,7 @@ export default function App() {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    const baseDate = new Date(eventDate);
+    const baseDate = parseDateLocal(eventDate);
     baseDate.setHours(0, 0, 0, 0);
 
     // Pobierz miesiąc i dzień z oryginalnej daty
@@ -99,7 +105,7 @@ export default function App() {
     const actualDate = isRecurring
       ? getNextOccurrence(targetDate, true)
       : targetDate;
-    const target = new Date(actualDate);
+    const target = parseDateLocal(actualDate);
     target.setHours(0, 0, 0, 0);
 
     const diffTime = target - today;
@@ -167,6 +173,7 @@ export default function App() {
   // Generowanie wydarzeń z infinite scroll dla powtarzalnych
   const generateEventsWithRecurring = () => {
     const today = new Date();
+    today.setHours(0, 0, 0, 0);
     const currentYear = today.getFullYear();
     const endYear = currentYear + yearsToShow;
     const allEvents = [];
@@ -174,7 +181,7 @@ export default function App() {
     events.forEach((event) => {
       if (event.recurring) {
         // Dla powtarzalnych wydarzeń, generuj wystąpienia dla kolejnych lat
-        const baseDate = new Date(event.date);
+        const baseDate = parseDateLocal(event.date);
         const month = baseDate.getMonth();
         const day = baseDate.getDate();
 
@@ -195,7 +202,8 @@ export default function App() {
         }
       } else {
         // Dla niepowtarzalnych wydarzeń, pokazuj tylko jeśli są w przyszłości
-        const eventDate = new Date(event.date);
+        const eventDate = parseDateLocal(event.date);
+        eventDate.setHours(0, 0, 0, 0);
         if (eventDate >= today) {
           allEvents.push({
             ...event,
